@@ -16,13 +16,13 @@
 
 <!-- Name and Image  -->
 <div class="container">
-	<form>
+	<form name="myForm">
 		<div class="input-group">
 	  		<div>
-		  		Name<input id="name" type="text" class="form-control">
+		  		Name<input id="name" type="text" class="form-control" name="name">
 	  		</div>
 	  		<div>
-		  		Image<input id="image" type="text" class="form-control">
+		  		Image<input id="image" type="text" class="form-control" name="img">
 	  		</div>
 	  		<input class="submit" type="submit" name="Submit">
 		</div>
@@ -69,27 +69,46 @@ $(document).ready(function() {
 		var q2 = 0;
 		var name = '';
 		var img = ''; 
+
 		//Replaces the default "Select option with users choice" 
 		$(".dropdown-menu li a").click(function(){
 		  $(this).parents(".dropdown").find('.btn').html($(this).text() + ' <span class="caret"></span>');
 		});
 
 		// gets question input 
-		 $('.q1 li').on('click', function(event) {
+		 $('.q1 li').on('click', function() {
 		 	q1 = $(this).val();
 		 });
-		 $('.q2 li').on('click', function(event) {
+		 $('.q2 li').on('click', function() {
 		 	q2 = $(this).val();
 		 });
 
 		// Gets name and Image input
 			$('.submit').on('click', function() {
-				// Holds input values
-				name = $('#name').val();
-				img = $('#image').val();
-				//Testing
-				console.log('name:', name , 'image:' , img, 'q1:', q1, 'q2:' , q2);				
-				return false;
+				// Validation
+					var qCount = q1 + q2;
+					var isName = document.forms["myForm"]["name"].value;
+				    var isImg = document.forms["myForm"]["img"].value;
+				    if (isName == "" || isImg == "" || qCount < 2) {
+				        alert("All fields must be filled out");
+				        return false;
+				    }
+				    else {
+						 
+						  var personData = {
+						    "name": $('#name').val().trim(),
+						    "photo":$('#image').val().trim(),
+						    "scores":[
+								        q1,
+								        q2
+								      ]
+						  }
+						 $.post('/api/friend', personData, function(data) {
+						 	$('#name').val("");
+						 	$('#image').val("");
+						 });
+						return false;
+				    }
 			}); 
 }); 
 </script>
