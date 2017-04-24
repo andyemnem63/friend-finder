@@ -75,7 +75,7 @@ $(document).ready(function() {
 		  $(this).parents(".dropdown").find('.btn').html($(this).text() + ' <span class="caret"></span>');
 		});
 
-		// gets question input 
+		// gets question input value
 		 $('.q1 li').on('click', function() {
 		 	q1 = $(this).val();
 		 });
@@ -83,7 +83,7 @@ $(document).ready(function() {
 		 	q2 = $(this).val();
 		 });
 
-		// Gets name and Image input
+		 // When Submit button is clicked ......
 			$('.submit').on('click', function() {
 				// Validation
 					var qCount = q1 + q2;
@@ -94,7 +94,7 @@ $(document).ready(function() {
 				        return false;
 				    }
 				    else {
-						 
+						 getFriendData(); 
 						  var personData = {
 						    "name": $('#name').val().trim(),
 						    "photo":$('#image').val().trim(),
@@ -110,6 +110,21 @@ $(document).ready(function() {
 						return false;
 				    }
 			}); 
+		function getFriendData() {
+			alert('Running');
+			var currentURL = window.location.origin;
+			$.ajax(
+			{
+				url: currentURL + '/api/friend',
+				method: 'GET'
+			})
+			.done(function(data) {
+				for(var i = 0; i < data.length; i++){
+					console.log('Name', data[i].scores);
+				}
+			});
+		}
+		
 }); 
 </script>
 </body>
