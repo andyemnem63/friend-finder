@@ -37,7 +37,7 @@
 	    Select an Option
 	    <span class="caret"></span>
 	  </button>
-	  <ul class="dropdown-menu" data-type='q1'>
+	  <ul class="dropdown-menu q1" data-type='q1'>
 	    <li value="1"><a href="#">Strongly Agree</a></li>
 	    <li value="2"><a href="#">Agree</a></li>
 	    <li value="3"><a href="#">Disagree</a></li>
@@ -53,7 +53,7 @@
 	    Select an Option
 	    <span class="caret"></span>
 	  </button>
-	  <ul  class="dropdown-menu" data-type="q2">
+	  <ul  class="dropdown-menu q2" data-type="q2">
 	    <li value="1"><a href="#">Strongly Agree</a></li>
 	    <li value="2"><a href="#">Agree</a></li>
 	    <li value="3"><a href="#">Disagree</a></li>
@@ -64,37 +64,34 @@
 
 <!-- Capturing users chooice -->
 <script type="text/javascript">
-	$(document).ready(function() {
-		
-		// Captures dropdown choice
-			$('ul').on('click', function(event) {
-				var question = $(this).data('type');
+$(document).ready(function() {
+		var q1 = 0;
+		var q2 = 0;
+		var name = '';
+		var img = ''; 
+		//Replaces the default "Select option with users choice" 
+		$(".dropdown-menu li a").click(function(){
+		  $(this).parents(".dropdown").find('.btn').html($(this).text() + ' <span class="caret"></span>');
+		});
 
-				switch(question) {
-					case 'q1':
-						console.log(true)
-						break;
-					case 'q2':
-						console.log(false)
-						break;
-					default:
-						console.log("N/A");
-				}
-			// var demo = $(this).val();
-			// console.log(demo);
+		// gets question input 
+		 $('.q1 li').on('click', function(event) {
+		 	q1 = $(this).val();
+		 });
+		 $('.q2 li').on('click', function(event) {
+		 	q2 = $(this).val();
 		 });
 
-		// Captures name and Image
+		// Gets name and Image input
 			$('.submit').on('click', function() {
 				// Holds input values
-				var name = $('#name').val();
-				var img = $('#image').val();
+				name = $('#name').val();
+				img = $('#image').val();
 				//Testing
-				console.log('name' , name , 'image' ,img); 
-				
+				console.log('name:', name , 'image:' , img, 'q1:', q1, 'q2:' , q2);				
 				return false;
 			}); 
-	}); 
+}); 
 </script>
 </body>
 </html>
