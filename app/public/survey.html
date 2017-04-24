@@ -14,6 +14,21 @@
 </head>
 <body>
 
+<!-- Name and Image  -->
+<div class="container">
+	<form>
+		<div class="input-group">
+	  		<div>
+		  		Name<input id="name" type="text" class="form-control">
+	  		</div>
+	  		<div>
+		  		Image<input id="image" type="text" class="form-control">
+	  		</div>
+	  		<input class="submit" type="submit" name="Submit">
+		</div>
+	</form>
+</div>
+<br><br><br><br>
 <!-- Questions -->
 <div class="container">
 	<!-- Question 1	 -->
@@ -22,7 +37,7 @@
 	    Select an Option
 	    <span class="caret"></span>
 	  </button>
-	  <ul class="dropdown-menu question1" aria-labelledby="dropdownMenu1">
+	  <ul class="dropdown-menu" data-type='q1'>
 	    <li value="1"><a href="#">Strongly Agree</a></li>
 	    <li value="2"><a href="#">Agree</a></li>
 	    <li value="3"><a href="#">Disagree</a></li>
@@ -38,7 +53,7 @@
 	    Select an Option
 	    <span class="caret"></span>
 	  </button>
-	  <ul  class="dropdown-menu question2" aria-labelledby="dropdownMenu1">
+	  <ul  class="dropdown-menu" data-type="q2">
 	    <li value="1"><a href="#">Strongly Agree</a></li>
 	    <li value="2"><a href="#">Agree</a></li>
 	    <li value="3"><a href="#">Disagree</a></li>
@@ -50,10 +65,35 @@
 <!-- Capturing users chooice -->
 <script type="text/javascript">
 	$(document).ready(function() {
-		$('li').on('click', function(event) {
-			var demo = $(this).val();
-			console.log(demo);
+		
+		// Captures dropdown choice
+			$('ul').on('click', function(event) {
+				var question = $(this).data('type');
+
+				switch(question) {
+					case 'q1':
+						console.log(true)
+						break;
+					case 'q2':
+						console.log(false)
+						break;
+					default:
+						console.log("N/A");
+				}
+			// var demo = $(this).val();
+			// console.log(demo);
 		 });
+
+		// Captures name and Image
+			$('.submit').on('click', function() {
+				// Holds input values
+				var name = $('#name').val();
+				var img = $('#image').val();
+				//Testing
+				console.log('name' , name , 'image' ,img); 
+				
+				return false;
+			}); 
 	}); 
 </script>
 </body>
