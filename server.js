@@ -15,6 +15,7 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 // Require Routes
 //App is passed in because it lets use us express in other files
 require('./app/routing/htmlRoutes.js')(app);
+require('./app/routing/apiRoutes.js')(app);
 
 // Listens for when page is loaded and starts server
 app.listen(PORT,function() {

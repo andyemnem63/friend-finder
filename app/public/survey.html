@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+	<!DOCTYPE html>
 <html>
 <head>
 	<title>Survey</title>
@@ -16,27 +16,44 @@
 
 <!-- Questions -->
 <div class="container">
-	
-	<div class="dropdown">
+	<!-- Question 1	 -->
+	<div class="dropdown">Question 1
 	  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
 	    Select an Option
 	    <span class="caret"></span>
 	  </button>
-	  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-	    <li><a href="#">Strongly Agree</a></li>
-	    <li><a href="#">Agree</a></li>
-	    <li><a href="#">Disagree</a></li>
-	    <li><a href="#">Stronglee Disagree</a></li>
+	  <ul class="dropdown-menu question1" aria-labelledby="dropdownMenu1">
+	    <li value="1"><a href="#">Strongly Agree</a></li>
+	    <li value="2"><a href="#">Agree</a></li>
+	    <li value="3"><a href="#">Disagree</a></li>
+	    <li value="4"><a href="#">Stronglee Disagree</a></li>
 	  </ul>
 	</div>
+	
+	<br><br><br>
 
+	<!-- Question 2 -->
+	<div class="dropdown">Question 2
+	  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+	    Select an Option
+	    <span class="caret"></span>
+	  </button>
+	  <ul  class="dropdown-menu question2" aria-labelledby="dropdownMenu1">
+	    <li value="1"><a href="#">Strongly Agree</a></li>
+	    <li value="2"><a href="#">Agree</a></li>
+	    <li value="3"><a href="#">Disagree</a></li>
+	    <li value="4"><a href="#">Stronglee Disagree</a></li>
+	  </ul>
+	</div>
 </div>
+
+<!-- Capturing users chooice -->
 <script type="text/javascript">
 	$(document).ready(function() {
-		$("li").click( function() {
-    		var yourText = $(this).text();
-    		console.log(yourText);
-		});
+		$('li').on('click', function(event) {
+			var demo = $(this).val();
+			console.log(demo);
+		 });
 	}); 
 </script>
 </body>
