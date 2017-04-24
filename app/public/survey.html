@@ -86,15 +86,14 @@ $(document).ready(function() {
 		 // When Submit button is clicked ......
 			$('.submit').on('click', function() {
 				// Validation
-					var qCount = q1 + q2;
-					var isName = document.forms["myForm"]["name"].value;
-				    var isImg = document.forms["myForm"]["img"].value;
+					let qCount = q1 + q2;
+					const isName = document.forms["myForm"]["name"].value;
+				    const isImg = document.forms["myForm"]["img"].value;
 				    if (isName == "" || isImg == "" || qCount < 2) {
 				        alert("All fields must be filled out");
 				        return false;
 				    }
 				    else {
-						 getFriendData(); 
 						  var personData = {
 						    "name": $('#name').val().trim(),
 						    "photo":$('#image').val().trim(),
@@ -107,12 +106,13 @@ $(document).ready(function() {
 						 	$('#name').val("");
 						 	$('#image').val("");
 						 });
+						 getFriendData(); 
 						return false;
 				    }
 			}); 
 		function getFriendData() {
 			alert('Running');
-			var currentURL = window.location.origin;
+			const currentURL = window.location.origin;
 			$.ajax(
 			{
 				url: currentURL + '/api/friend',
@@ -120,7 +120,10 @@ $(document).ready(function() {
 			})
 			.done(function(data) {
 				for(var i = 0; i < data.length; i++){
-					console.log('Name', data[i].scores);
+					console.log('===================');
+					console.log('Name', data[i].name);
+					console.log('score', data[i].scores);
+					console.log('===================');
 				}
 			});
 		}
