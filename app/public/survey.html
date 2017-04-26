@@ -43,7 +43,7 @@
 	    <li value="3"><a href="#">Disagree</a></li>
 	    <li value="4"><a href="#">Stronglee Disagree</a></li>
 	  </ul>
-	</div>
+	</div> <!-- End of question 1 -->
 	
 	<br><br><br>
 
@@ -60,7 +60,27 @@
 	    <li value="4"><a href="#">Stronglee Disagree</a></li>
 	  </ul>
 	</div>
-</div>
+</div> <!-- End of question2 -->
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        	<span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div> <!-- End of Modal -->
+
 
 <!-- Capturing users chooice -->
 <script type="text/javascript">
@@ -80,15 +100,17 @@ $(document).ready(function() {
 		 $('.q2 li').on('click', function() {
 		 	q2 = $(this).val();
 		 });
+		 
 		 // When Submit button is clicked ......
-			$('.submit').on('click', function() {
+			$('.submit').on('click', function(event) {
+				event.preventDefault(); 
 				// Validation
 					let qCount = q1 + q2;
 					const isName = document.forms["myForm"]["name"].value;
 				    const isImg = document.forms["myForm"]["img"].value;
+				    //Checks if name and image input are empty and if all questions are filled out
 				    if (isName == "" || isImg == "" || qCount < 2) {
 				        alert("All fields must be filled out");
-				        return false;
 				    }
 				    else {
 				    	// User input information
@@ -105,12 +127,11 @@ $(document).ready(function() {
 						});
 						// Holds users score
 						 let userScore = [q1, q2];
-						// Gets people DATA
-						 getFriendData(userScore); 
-						return false;
+						// Compares Scores
+						 scoreCompare(userScore); 
 				    }
 			}); 
-		function getFriendData(userScore) {
+		function scoreCompare(userScore) {
 			const currentURL = window.location.origin;
 			let scoreArr = [];
 			let sum = 0; 
@@ -122,9 +143,9 @@ $(document).ready(function() {
 			.done(function(data) {
 				let lowScore = 10;
 				let index = 0;
-				//First loop chooses the nth element in the array
+				//First loop chooses the nth element in the array of people
 				for(let i = 0; i < data.length - 1; i++){
-					//Subtracts both scores and adds it to sum letiable
+					//Subtracts both scores and adds it to sum variable
 					for(let j = 0; j < userScore.length; j++) {
 						sum += userScore[j] - data[i].scores[j];
 					}
@@ -143,11 +164,27 @@ $(document).ready(function() {
 						index = i;
 					}
 				}
+
+				modal(data, index);
+				// Testing
 				console.log('Low score' , lowScore);
 				console.log('index' , index);
 			});
 		}
-		
+	function modal(data, index) {
+			let matchName = data[index].name;
+			let matchImg = data[index].photo;
+			//Modal
+			$('#myModal').modal('show');
+			console.log('image:', matchImg);
+			console.log('name:', matchName);
+	    		var nameDiv = $('<div>');
+	    		var imgDiv = $('<div>');
+	    		nameDiv.text(matchName);
+	    		imgDiv.text(matchImg);
+	    		$('.modal-body').append(nameDiv);
+	    		$('.modal-body').append(imgDiv);
+	}
 }); 
 </script>
 </body>
