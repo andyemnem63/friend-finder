@@ -1,23 +1,23 @@
 var peopleArr = [
   {
-    "name":"Randy",
-    "photo":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+    "name":"Steve",
+    "photo":"https://calculatedbravery.files.wordpress.com/2014/01/nerd.jpg",
     "scores":[
         1,
         1
       ]
   },
   {
-    "name":"Sandy",
-    "photo":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+    "name":"Naplieon",
+    "photo":"http://images.amcnetworks.com/ifc.com/wp-content/uploads/2014/02/nerd-dance.jpg",
     "scores":[
         2,
         2
       ]
   },
   {
-    "name":"Mandy",
-    "photo":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+    "name":"Suzie",
+    "photo":"http://www.halloweenmakeupcostumesprops.com/images/nerd-girl-kit.jpg",
     "scores":[
         4,
         4

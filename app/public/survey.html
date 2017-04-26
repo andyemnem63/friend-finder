@@ -81,7 +81,6 @@
   </div>
 </div> <!-- End of Modal -->
 
-
 <!-- Capturing users chooice -->
 <script type="text/javascript">
 $(document).ready(function() {
@@ -172,16 +171,17 @@ $(document).ready(function() {
 			});
 		}
 	function modal(data, index) {
+			$('.modal-body').empty();
 			let matchName = data[index].name;
 			let matchImg = data[index].photo;
 			//Modal
 			$('#myModal').modal('show');
 			console.log('image:', matchImg);
 			console.log('name:', matchName);
-	    		var nameDiv = $('<div>');
-	    		var imgDiv = $('<div>');
+	    		let nameDiv = $('<h1>');
+	    		let imgDiv = $('<img style="width:300px">');
 	    		nameDiv.text(matchName);
-	    		imgDiv.text(matchImg);
+	    		imgDiv.attr('src' , matchImg);
 	    		$('.modal-body').append(nameDiv);
 	    		$('.modal-body').append(imgDiv);
 	}
