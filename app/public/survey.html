@@ -47,7 +47,7 @@
 				    Select an Option
 				    <span class="caret"></span>
 				  </button>
-				  <ul class="dropdown-menu q1" data-type='q1'>
+				  <ul class="dropdown-menu q1">
 				    <li value="1"><a href="#">Javascript</a></li>
 				    <li value="2"><a href="#">C++</a></li>
 				    <li value="3"><a href="#">Ruby</a></li>
@@ -64,7 +64,7 @@
 				    Select an Option
 				    <span class="caret"></span>
 				  </button>
-				  <ul  class="dropdown-menu q2" data-type="q2">
+				  <ul  class="dropdown-menu q2">
 				    <li value="1"><a href="#">Less then 1 year</a></li>
 				    <li value="2"><a href="#">Less than 5 years</a></li>
 				    <li value="3"><a href="#">More than 6 years</a></li>
@@ -81,7 +81,7 @@
 				    Select an Option
 				    <span class="caret"></span>
 				  </button>
-				  <ul  class="dropdown-menu q3" data-type="q3">
+				  <ul  class="dropdown-menu q3">
 				    <li value="1"><a href="#">Very Strong</a></li>
 				    <li value="2"><a href="#">Strong</a></li>
 				    <li value="3"><a href="#">Weak</a></li>
@@ -96,7 +96,7 @@
 				    Select an Option
 				    <span class="caret"></span>
 				  </button>
-				  <ul  class="dropdown-menu q4" data-type="q4">
+				  <ul  class="dropdown-menu q4">
 				    <li value="1"><a href="#">Very Strong</a></li>
 				    <li value="2"><a href="#">Strong</a></li>
 				    <li value="3"><a href="#">Weak</a></li>
@@ -111,7 +111,7 @@
 				    Select an Option
 				    <span class="caret"></span>
 				  </button>
-				  <ul  class="dropdown-menu q5" data-type="q5">
+				  <ul  class="dropdown-menu q5">
 				    <li value="1"><a href="#">Very Strong</a></li>
 				    <li value="2"><a href="#">Strong</a></li>
 				    <li value="3"><a href="#">Weak</a></li>
@@ -126,7 +126,7 @@
 				    Select an Option
 				    <span class="caret"></span>
 				  </button>
-				  <ul  class="dropdown-menu q6" data-type="q6">
+				  <ul  class="dropdown-menu q6">
 				    <li value="1"><a href="#">Very Strong</a></li>
 				    <li value="2"><a href="#">Strong</a></li>
 				    <li value="3"><a href="#">Weak</a></li>
@@ -141,7 +141,7 @@
 				    Select an Option
 				    <span class="caret"></span>
 				  </button>
-				  <ul  class="dropdown-menu q7" data-type="q7">
+				  <ul  class="dropdown-menu q7">
 				    <li value="1"><a href="#">Very Strong</a></li>
 				    <li value="2"><a href="#">Strong</a></li>
 				    <li value="3"><a href="#">Weak</a></li>
@@ -156,7 +156,7 @@
 				    Select an Option
 				    <span class="caret"></span>
 				  </button>
-				  <ul  class="dropdown-menu q8" data-type="q8">
+				  <ul  class="dropdown-menu q8">
 				    <li value="1"><a href="#">Very Strong</a></li>
 				    <li value="2"><a href="#">Strong</a></li>
 				    <li value="3"><a href="#">Weak</a></li>
@@ -171,7 +171,7 @@
 				    Select an Option
 				    <span class="caret"></span>
 				  </button>
-				  <ul  class="dropdown-menu q9" data-type="q9">
+				  <ul  class="dropdown-menu q9">
 				    <li value="1"><a href="#">Very Strong</a></li>
 				    <li value="2"><a href="#">Strong</a></li>
 				    <li value="3"><a href="#">Weak</a></li>
@@ -186,7 +186,7 @@
 				    Select an Option
 				    <span class="caret"></span>
 				  </button>
-				  <ul  class="dropdown-menu q10" data-type="q10">
+				  <ul  class="dropdown-menu q10">
 				    <li value="1"><a href="#">Very Strong</a></li>
 				    <li value="2"><a href="#">Strong</a></li>
 				    <li value="3"><a href="#">Weak</a></li>
@@ -262,14 +262,12 @@ $(document).ready(function() {
 			$('.submit').on('click', function(event) {
 				event.preventDefault(); 
 				// Validation
-					let qCount = q1 + q2 + q3 + q4+ q5 + q6
-					 		   + q7 + q8+ q9+ q10;
 				 let userScore = [q1, q2 ,q3 ,q4, q5 ,q6, q7, q8 ,q9, q10];
 					console.log('Counter: ' ,qCount);
 					const isName = document.forms["myForm"]["name"].value;
 				    const isImg = document.forms["myForm"]["img"].value;
 				    //Checks if name and image input are empty and if all questions are filled out
-				    if (isName == "" || isImg == "" || qCount < 3) {
+				    if (isName == "" || isImg == "") {
 				        alert("All fields must be filled out");
 				    }
 				    else {
