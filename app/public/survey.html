@@ -12,55 +12,83 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </head>
+<style type="text/css">
+	body {
+		background-image: url('http://cdn.wonderfulengineering.com/wp-content/uploads/2014/09/blue-wallpaper-7.jpg');
+	}
+</style>
 <body>
 
-<!-- Name and Image  -->
-<div class="container">
-	<form name="myForm">
-		<div class="input-group">
-	  		<div>
-		  		Name<input id="name" type="text" class="form-control" name="name">
-	  		</div>
-	  		<div>
-		  		Image<input id="image" type="text" class="form-control" name="img">
-	  		</div>
-	  		<input class="submit" type="submit" name="Submit">
-		</div>
-	</form>
-</div>
-<br><br><br><br>
+<!-- <br><br><br><br> -->
 <!-- Questions -->
 <div class="container">
-	<!-- Question 1	 -->
-	<div class="dropdown">Question 1
-	  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-	    Select an Option
-	    <span class="caret"></span>
-	  </button>
-	  <ul class="dropdown-menu q1" data-type='q1'>
-	    <li value="1"><a href="#">Strongly Agree</a></li>
-	    <li value="2"><a href="#">Agree</a></li>
-	    <li value="3"><a href="#">Disagree</a></li>
-	    <li value="4"><a href="#">Stronglee Disagree</a></li>
-	  </ul>
-	</div> <!-- End of question 1 -->
-	
-	<br><br><br>
+	<div class="row">
+		<div class="col-md-2"></div>
+		<div class="col-md-10">
+				<form name="myForm">
+					<div class="input-group">
+	  					<div>
+							<h3>Name</h3>
+		  					<input id="name" type="text" class="form-control" name="name">
+	  					</div>
+	  					<div>
+							<h3>Image</h3>
+		  						<input id="image" type="text" class="form-control" name="img">
+	  						</div>
+	  					<input class="submit" type="submit" name="Submit">
+					</div>
+				</form>
 
-	<!-- Question 2 -->
-	<div class="dropdown">Question 2
-	  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-	    Select an Option
-	    <span class="caret"></span>
-	  </button>
-	  <ul  class="dropdown-menu q2" data-type="q2">
-	    <li value="1"><a href="#">Strongly Agree</a></li>
-	    <li value="2"><a href="#">Agree</a></li>
-	    <li value="3"><a href="#">Disagree</a></li>
-	    <li value="4"><a href="#">Stronglee Disagree</a></li>
-	  </ul>
+				<!-- Question 1	 -->
+				<h1>Which programming language do you prefer</h1>
+				<div class="dropdown">
+				  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+				    Select an Option
+				    <span class="caret"></span>
+				  </button>
+				  <ul class="dropdown-menu q1" data-type='q1'>
+				    <li value="1"><a href="#">Javascript</a></li>
+				    <li value="2"><a href="#">C++</a></li>
+				    <li value="3"><a href="#">Ruby</a></li>
+				    <li value="4"><a href="#">Java</a></li>
+				  </ul>
+				</div> <!-- End of question 1 -->
+				
+				<br><br><br>
+
+				<!-- Question 2 -->
+				<h1>How long have you been coding for</h1>
+				<div class="dropdown">
+				  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+				    Select an Option
+				    <span class="caret"></span>
+				  </button>
+				  <ul  class="dropdown-menu q2" data-type="q2">
+				    <li value="1"><a href="#">Less then 1 year</a></li>
+				    <li value="2"><a href="#">Less than 5 years</a></li>
+				    <li value="3"><a href="#">More than 6 years</a></li>
+				    <li value="4"><a href="#">More than 10 years</a></li>
+				  </ul>
+				</div> <!-- End of question2 -->				
+
+				<br><br><br>
+
+				<!-- Question 3 -->
+				<h1>How strong is your wifi connection</h1>
+				<div class="dropdown">
+				  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+				    Select an Option
+				    <span class="caret"></span>
+				  </button>
+				  <ul  class="dropdown-menu q3" data-type="q3">
+				    <li value="1"><a href="#">Very Strong</a></li>
+				    <li value="2"><a href="#">Strong</a></li>
+				    <li value="3"><a href="#">Weak</a></li>
+				    <li value="4"><a href="#">Very Weak</a></li>
+				  </ul>
+				</div> <!-- End of question3 -->
+		</div>
 	</div>
-</div> <!-- End of question2 -->
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -84,8 +112,9 @@
 <!-- Capturing users chooice -->
 <script type="text/javascript">
 $(document).ready(function() {
-		var q1 = 0;
-		var q2 = 0;
+		let q1 = 0,
+			q2 = 0,
+			q3 = 0;
 		var userScore =[];
 		//Replaces the default "Select option with users choice" 
 		$(".dropdown-menu li a").on('click', function(){
@@ -99,16 +128,21 @@ $(document).ready(function() {
 		 $('.q2 li').on('click', function() {
 		 	q2 = $(this).val();
 		 });
+		  $('.q3 li').on('click', function() {
+		 	q3 = $(this).val();
+		 });
 		 
 		 // When Submit button is clicked ......
 			$('.submit').on('click', function(event) {
 				event.preventDefault(); 
 				// Validation
-					let qCount = q1 + q2;
+					let qCount = q1 + q2 + q3;
+				 let userScore = [q1, q2 ,q3];
+					console.log('Counter: ' ,qCount);
 					const isName = document.forms["myForm"]["name"].value;
 				    const isImg = document.forms["myForm"]["img"].value;
 				    //Checks if name and image input are empty and if all questions are filled out
-				    if (isName == "" || isImg == "" || qCount < 2) {
+				    if (isName == "" || isImg == "" || qCount < 3) {
 				        alert("All fields must be filled out");
 				    }
 				    else {
@@ -116,7 +150,7 @@ $(document).ready(function() {
 						  let personData = {
 						    "name": $('#name').val().trim(),
 						    "photo":$('#image').val().trim(),
-						    "scores":[q1, q2]
+						    "scores":[q1, q2, q3]
 						  }
 						// Posts users name, image & score
 	    				$.post('/api/friend', personData, function(data) {
@@ -125,7 +159,6 @@ $(document).ready(function() {
 					 		$('#image').val("");
 						});
 						// Holds users score
-						 let userScore = [q1, q2];
 						// Compares Scores
 						 scoreCompare(userScore); 
 				    }
@@ -163,7 +196,6 @@ $(document).ready(function() {
 						index = i;
 					}
 				}
-
 				modal(data, index);
 				// Testing
 				console.log('Low score' , lowScore);
