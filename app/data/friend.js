@@ -6,6 +6,13 @@ var peopleArr = [
         1,
         1,
         1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
       ]
   },
   {
@@ -14,16 +21,78 @@ var peopleArr = [
     "scores":[
         2,
         2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
         2
       ]
   },
   {
-    "name":"Suzie",
-    "photo":"http://www.halloweenmakeupcostumesprops.com/images/nerd-girl-kit.jpg",
+    "name":"Larry",
+    "photo":"https://image.shutterstock.com/z/stock-photo-nerd-silly-retro-man-teacher-with-braces-funny-expression-winner-victory-finger-gesture-320180192.jpg",
     "scores":[
-        4,
-        4,
-        4
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ]
+  },
+    {
+    "name":"Sarah",
+    "photo":"https://thumb7.shutterstock.com/display_pic_with_logo/2444651/417486019/stock-photo-nerd-woman-with-big-diopters-dusty-glasses-lush-green-trees-background-417486019.jpg",
+    "scores":[
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ]
+  },
+    {
+    "name":"Lindsey",
+    "photo":"http://www.books4you.addr.com/nerd_glasses_dork_geek.jpg",
+    "scores":[
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7
+      ]
+  },
+    {
+    "name":"Lissa",
+    "photo":"https://thumb1.shutterstock.com/display_pic_with_logo/482764/610894760/stock-photo-studio-portrait-of-funny-happy-young-business-woman-in-big-nerd-eyeglasses-on-gray-background-610894760.jpg",
+    "scores":[
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
       ]
   }
 ]
