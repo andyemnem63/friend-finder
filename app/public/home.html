@@ -10,21 +10,60 @@
 </head>
 
 <style type="text/css">
-body {
-	background-image: url('https://newevolutiondesigns.com/images/freebies/hd-wallpaper-15.jpg');
+#backgroundImage{z-index: 1;}
+
+#backgroundImage:before {
+   content: "";
+   position: absolute;
+   z-index: -1;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   background-image: url('http://cdn.sheknows.com/articles/2014/04/Rebekah/SKUK/group-of-friends.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    opacity: 0.4;
+    filter:alpha(opacity=40);
+    height:100%;
+    width:100%;
+ }
+
+.front {
+	margin-top:36em;
 }
+
 h1 {
 	color: white; 
+	font-weight: 900;
 }
+	
+
+button {
+    background: none;
+    border: 1px solid white;
+    position: relative;
+    left: 15px;
+    top: -10em;
+    height: 50px;
+    width: 700px;
+}
+button:hover { 
+    background-color: #CFE1E1;
+}
+
 </style>
 <body>
 	<div class="container-fluid">
 			<div class="text-center">
-				<strong><h1>Programmer Meet</h1></strong>
-				<a href= '/survey' type="button" class="btn btn-success btn-lg" >Go to survey
-			  		<!-- Glyphicon -->
-			  		<span class="glyphicon glyphicon-fire" aria-hidden="true"></span>
-				</a>
+				<div id="backgroundImage">
+					<div class="front">
+						<h1>Programmers Meet</h1>
+							<button>
+								<a  href= '/survey' type="button">Go to Survey</a>
+							</button>
+					</div>					
+					 </div>
 			</div>
 	</div>
 </body>
